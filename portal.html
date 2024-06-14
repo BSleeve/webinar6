@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Anasayfa - Koç Holding Emekli Vakfı Webinar Katılım Portalı</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link href="app.min.css" rel="stylesheet">
+    <style>
+        .page-container {
+            background: #f7f7f7;
+        }
+        #accountName {
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            color: #2a2a2a;
+            font-size: 15px;
+            padding: 3px;
+        }
+        .side-nav .side-nav-inner .side-nav-menu li {
+            margin-bottom: 5px;
+        }
+        .side-nav .side-nav-inner .side-nav-menu>li>a {
+            font-size: 16px;
+        }
+        .active-navbar {
+            background: rgba(63, 135, 245, .15);
+        }
+        .active-navbar span {
+            color: #3f87f5;
+        }
+        .logo {
+            position: relative;
+            z-index: 1; /* Logo en üstte */
+        }
+        .video-container {
+            position: relative;
+            width: 50%; /* Sayfa genişliğinin yarısı */
+            margin: 0 auto; /* Sayfa ortasına hizalama */
+            padding-bottom: 28.13%; /* 16:9 oranı korur */
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="layout">
+            <div class="header">
+                <div class="logo logo-dark">
+                    <a href="/anasayfa">
+                        <img src="emek_logo.png" style="width:100%" alt="Logo">
+                        <img class="logo-fold" src="favicon.png" style="width:100%" alt="Logo">
+                    </a>
+                </div>
+                <div class="nav-wrap">
+                    <ul class="nav-left">
+                        <li class="desktop-toggle">
+                            <a href="javascript:void(0);">
+                                <i class="anticon"></i>
+                            </a>
+                        </li>
+                        <li class="mobile-toggle">
+                            <a href="javascript:void(0);">
+                                <i class="anticon"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="row">
+                        <div class="col-12"
+                             style="text-align:center;display: flex; justify-content: center; align-items: center;margin-top:30px;">
+                            <h1 style="font-weight: bold;font-size:40px;">Koç Holding Emekli Vakfı Webinar Katılım Portalı</h1>
+                        </div>
+                        <div class="col-12"
+                             style="text-align:center;display: flex; justify-content: center; align-items: center;">
+                            <div class="video-container">
+                                <!-- Vimeo embed code -->
+                                <iframe src="https://vimeo.com/event/4385797/embed/interaction" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-12"
+                             style="text-align:center;display: flex; justify-content: center; align-items: center; height: 40vh;">
+                            <img style="width: 400px;" src="logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Wrapper END -->
+            </div>
+            <!-- Page Container END -->
+        </div>
+    </div>
+
+    <!-- Core Vendors JS -->
+    <script src="vendors.min.js"></script>
+    <script src="pages/dashboard-default.js"></script>
+
+    <!-- Core JS -->
+    <script src="app.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        const menuItems = document.querySelectorAll('.side-nav-menu > .nav-item');
+
+        menuItems.forEach((menuItem) => {
+            const anchor = menuItem.querySelector('a');
+
+            if (anchor && anchor.getAttribute('href') === window.location.pathname) {
+                menuItem.classList.add('active-navbar');
+            }
+
+            const dropdownMenu = menuItem.querySelector('.dropdown-menu');
+
+            if (dropdownMenu) {
+                const subMenuItems = dropdownMenu.querySelectorAll('li');
+
+                subMenuItems.forEach((subMenuItem) => {
+                    const subMenuAnchor = subMenuItem.querySelector('a');
+
+                    if (subMenuAnchor && subMenuAnchor.getAttribute('href') === window.location.pathname) {
+                        menuItem.classList.add('open');
+                        subMenuItem.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        function kontrolEt() {
+            var checkBox = document.getElementById("sozlesme");
+            var sonucDiv = document.getElementById("message");
+
+            if (checkBox.checked) {
+                $("#sconay").prop('disabled', false);
+            } else {
+                $("#sconay").prop('disabled', true);
+            }
+        }
+    </script>
+</body>
+</html>

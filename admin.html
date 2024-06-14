@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giriş ve Kayıt Portalı</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f7f7f7;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .toggle {
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+        .toggle:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h1>Giriş Yap</h1>
+        <input type="text" placeholder="Kullanıcı Adı" id="loginUsername">
+        <input type="password" placeholder="Şifre" id="loginPassword">
+        <button onclick="login()">Giriş Yap</button>
+        <div class="toggle" onclick="toggleForm()">Hesabın yok mu? Kayıt Ol</div>
+    </div>
+    
+    <div class="container" id="registerContainer" style="display: none;">
+        <h1>Kayıt Ol</h1>
+        <input type="text" placeholder="Kullanıcı Adı" id="registerUsername">
+        <input type="email" placeholder="E-posta" id="registerEmail">
+        <input type="password" placeholder="Şifre" id="registerPassword">
+        <button onclick="register()">Kayıt Ol</button>
+        <div class="toggle" onclick="toggleForm()">Hesabın var mı? Giriş Yap</div>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var loginContainer = document.getElementById('loginContainer');
+            var registerContainer = document.getElementById('registerContainer');
+            if (loginContainer.style.display === 'none') {
+                loginContainer.style.display = 'block';
+                registerContainer.style.display = 'none';
+            } else {
+                loginContainer.style.display = 'none';
+                registerContainer.style.display = 'block';
+            }
+        }
+
+        function login() {
+            window.location.href = "portal.html";
+        }
+
+        function register() {
+            alert("Kayıt olundu!");
+        }
+    </script>
+</body>
+</html>
